@@ -1,0 +1,22 @@
+.StyledSelect {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 5fr 3fr;
+    background-color: lightsteelblue;
+    gap: 10px;
+}
+
+.StyledProfile {
+    display: grid;
+    position: fixed;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+
+.linka {
+    position: absolute;
+    color: lightgray;
+
+}
