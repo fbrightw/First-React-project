@@ -1,8 +1,8 @@
 import {Component} from "react";
-import {Listening} from "../Sections/Listening"
-import {Reading} from "../Sections/Reading"
-import {Writing} from "../Sections/Writing"
-import {Speaking} from "../Sections/Speaking"
+import {Listening} from "../Sections/Listening.jsx"
+import {Reading} from "../Sections/Reading.jsx"
+import {Writing} from "../Sections/Writing.jsx"
+import {Speaking} from "../Sections/Speaking.jsx"
 import {StyledSelect, StyledProfile} from "./elements"
 import "./index.css"
 import "../../App.css"

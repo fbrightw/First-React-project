@@ -1,5 +1,5 @@
 import './App.css';
-import RootComponent from "./Components/RootComponent";
+import RootComponent from "./Components/RootComponent.jsx";
 
 function App() {
   return (

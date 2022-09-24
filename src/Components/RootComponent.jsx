@@ -1,7 +1,7 @@
 import {Component} from "react";
-import NavBar from "./NavBar/index";
+import NavBar from "./NavBar/index.js";
 import Calendar from 'react-calendar';
-import Todos from "./Body/Todos"
+import Todos from "./Body/Todos.jsx"
 // import 'react-calendar/dist/Calendar.css';
 import "./index.css"
 
