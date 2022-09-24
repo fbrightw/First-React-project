@@ -1,6 +1,6 @@
 const path = require('path');
 
-// const HtmlWebpackPlugin = require('html-webpack-plugin'); // Импортируем плагин
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Импортируем плагин
 
 let mode = 'development'; // По умолчанию режим development
 if (process.env.NODE_ENV === 'production') { // Режим production, если
@@ -9,9 +9,9 @@ if (process.env.NODE_ENV === 'production') { // Режим production, если
 }
 
 const plugins = [
-    // new HtmlWebpackPlugin({
-    //     template: './src/index.html', // Данный html будет использован как шаблон
-    // }),
+    new HtmlWebpackPlugin({
+        template: './public/index.html', // Данный html будет использован как шаблон
+    }),
 ]; // Создаем массив плагинов
 
 module.exports = {
@@ -38,16 +38,18 @@ module.exports = {
     watch: true,
 
     devtool: 'source-map', // позволяет дебажить
-
     devServer: {
-        // hot: true, // Включает автоматическую перезагрузку страницы при изменениях
-        inline: true,
+        hot: true, // Включает автоматическую перезагрузку страницы при изменениях
+        // inline: true,
         port: 8080
     },
 
     module: {
         rules: [
-            // { test: /\.(html)$/, use: ['html-loader'] },
+            { test: /\.(html)$/, use: {
+                    loader: 'html-loader'
+                },
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/, // не обрабатываем файлы из node_modules
@@ -66,7 +68,5 @@ module.exports = {
                 exclude: /node_modules/
             }
         ],
-
     }
-
 }
