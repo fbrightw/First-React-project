@@ -1,3 +1,4 @@
+import React from 'react';
 import Particles from "react-tsparticles";
 import "../index.css"
 import styled from "styled-components";

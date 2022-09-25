@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import {styleTodo} from "./elements";
 import {RadioBtnGroup} from "../../utils/RadioBtnGroup";
 

@@ -27,8 +27,6 @@ module.exports = {
         // // складываться в dist/assets
 
         clean: true, // Очищает директорию dist перед обновлением бандла
-        // Свойство стало доступно с версии 5.20.0, до этого использовался
-        // CleanWebpackPlugin
     },
 
     resolve: {
@@ -41,7 +39,7 @@ module.exports = {
     devServer: {
         hot: true, // Включает автоматическую перезагрузку страницы при изменениях
         // inline: true,
-        port: 8080
+        port: 3000
     },
 
     module: {
@@ -59,6 +57,7 @@ module.exports = {
                         cacheDirectory: true, // Использование кэша для избежания рекомпиляции
                         // при каждом запуске
                     },
+
                 },
             }, // Добавляем загрузчик для html
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },

@@ -1,12 +1,15 @@
+import React from 'react';
 import './App.css';
-import RootComponent from "./Components/RootComponent.jsx";
+import Sections from "./Components/Sections";
+import NavBar from "./Components/NavBar";
 
 function App() {
-  return (
-      <div>
-          <RootComponent />
-      </div>
-  );
+    return (
+        <>
+            <NavBar/>
+            {/*<Sections/>*/}
+        </>
+    );
 }
 
 export default App;

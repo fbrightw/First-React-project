@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import {Listening} from "../Sections/Listening.jsx"
 import {Reading} from "../Sections/Reading.jsx"
 import {Writing} from "../Sections/Writing.jsx"
@@ -51,28 +51,30 @@ export default class NavBar extends  Component {
 
     render() {
         return (
-            <nav className = "navbar sticky navbar-expand-lg navbar-light bg-light">
-                <StyledSelect
-                    options={options}
-                    value={this.state.value}
-                    onChange={this.onChange}
-                    // classNamePrefix="Study"
-                />
-                <Switch/>
-                <StyledProfile/>
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
-                        {links.map((link) => {
-                            return (
-                                <li className="nav-item">
-                                    {/*<a className="nav-item nav-link active" href={link.url} key={link.id}>*/}
-                                    <a className="nav-link" href={link.url} key={link.id}>
-                                        {link.text}
-                                    </a>
-                                </li>
-                            )
-                        })}
-                    </ul>
+            <nav className = "navbar sticky-top navbar-expand-lg navbar-light bg-light">
+                <div className='navbar-container'>
+                    <StyledSelect
+                        options={options}
+                        value={this.state.value}
+                        onChange={this.onChange}
+                        // classNamePrefix="Study"
+                    />
+                    <Switch />
+                    <StyledProfile/>
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav">
+                            {links.map((link) => {
+                                return (
+                                    <li className="nav-item" key={link.id}>
+                                        {/*<a className="nav-item nav-link active" href={link.url} key={link.id}>*/}
+                                        <a className="nav-link" href={link.url}>
+                                            {link.text}
+                                        </a>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </nav>
         )
