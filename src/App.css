@@ -8,20 +8,6 @@
   gap: 10px;
 }
 
-/*.calendar {*/
-/*  display: grid;*/
-/*  grid-auto-columns: 1fr 2fr;*/
-/*  background-color: azure;*/
-/*  grid-column: 1;*/
-/*  grid-row: 3;*/
-/*}*/
-
-/*.todoList {*/
-/*  background-color: lightblue;*/
-/*  grid-column: 2;*/
-/*  grid-row: 1;*/
-/*}*/
-
 .navbar {
   display: flex;
   justify-content: space-around;

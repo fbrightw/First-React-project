@@ -51,7 +51,7 @@ export default class NavBar extends  Component {
 
     render() {
         return (
-            <nav className = "navbar sticky-top navbar-expand-lg navbar-light bg-light">
+            <nav className = "navbar sticky navbar-expand-lg navbar-light bg-light">
                 <div className='navbar-container'>
                     <StyledSelect
                         options={options}
