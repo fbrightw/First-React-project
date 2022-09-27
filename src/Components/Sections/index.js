@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {ParticlesBackgroundStyled} from "../Body/ParticlesBackground";
 import Animated from "../Body/Animated.js";
 import Todos from "../Body/Todos.jsx";
+import './index.css'
 
 export default class Sections extends Component {
     render() {
@@ -22,7 +23,6 @@ export default class Sections extends Component {
                 {/*     <Calendar />*/}
                 {/*    <div className="todoList"><Todos/></div>*/}
                 {/* </div>*/}
-                {/*<Footer />*/}
             </div>
         );
     }

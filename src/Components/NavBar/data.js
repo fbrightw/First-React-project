@@ -6,11 +6,6 @@ export const links = [
     },
     {
         id: 2,
-        text: 'reading',
-        url: '#reading'
-    },
-    {
-        id: 3,
         text: 'todo',
         url: '#toDo'
     }
