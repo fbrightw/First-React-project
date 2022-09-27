@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {StyledProfile} from "./elements"
-import "./styledselect.css"
 import "./navbar.css"
 import Switch from "./Switch";
 import {links} from "./data"
@@ -20,19 +19,20 @@ export default class NavBar extends  Component {
 
     render() {
         return (
-            <nav className="navbar sticky">
-                <Switch />
-                <StyledProfile/>
+            <nav className="navbar">
+                {/*<StyledProfile/>*/}
                 <ul>
                     {links.map((link) => {
                         return (
-                            <li className="breadcrumb" key={link.id}>
-                                <a className="a" href={link.url}>
+                            <li key={link.id}>
+                                {link.svg ? link.svg : null}
+                                <a href={link.url}>
                                     {link.text}
                                 </a>
                             </li>
                         )
                     })}
+                    {/*<Switch />*/}
                 </ul>
             </nav>
         )

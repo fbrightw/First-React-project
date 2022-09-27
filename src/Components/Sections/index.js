@@ -8,8 +8,7 @@ export default class Sections extends Component {
     render() {
         return (
             <div>
-                <section className="motivation" id="motivation">
-                    <h1>Motivation that we need</h1>
+                <section className="home" id="home">
                     <ParticlesBackgroundStyled />
                 </section>
                 <section className='reading' id='reading'>

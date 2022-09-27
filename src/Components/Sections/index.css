@@ -1,12 +1,13 @@
-.motivation,
+.home,
 .toDo {
     min-height: 80vh;
     text-align: center;
 }
 
-.motivation {
+.home {
     height: 80%;
     width: 100%;
+    background: #1f4969;
 }
 
 .particles{

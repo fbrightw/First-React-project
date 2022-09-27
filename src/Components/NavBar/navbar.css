@@ -4,28 +4,29 @@
   align-items: center;
   min-height: 10vh;
   grid-row: 1;
-  background-color: lightgray;
+  position: sticky;
+  top: 0;
+  background: rgba(98, 155, 245, 0.25);
 }
 
-.breadcrumb {
-  font-weight: 700;
+.navbar ul {
+  margin-left: auto;
+}
+
+.navbar li {
+  list-style-type: none;
+  font-weight: 40;
   padding: 20px 20px;
   cursor: pointer;
   font-size: large;
   display: inline;
 }
 
-.a {
+.navbar a {
   text-decoration: none;
-}
-
-.sticky {
-  position: sticky;
-  top: 0;
-  background: rgba(98, 155, 245, 0.25);
+  width: 100%
 }
 
 html {
   scroll-behavior: smooth;
 }
-
