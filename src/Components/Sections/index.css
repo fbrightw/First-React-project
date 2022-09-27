@@ -5,8 +5,11 @@
 }
 
 .home {
-    height: 80%;
     width: 100%;
+    background: rgba(128, 154, 199, 0.25);
+}
+
+.toDo {
     background: #1f4969;
 }
 
@@ -19,12 +22,18 @@
     z-index: -1;
 }
 
-canvas {
-    display: block;
-    vertical-align: bottom;
-    width: 100px
+.quote {
+    margin: 20px;
+    background: rgba(33, 75, 141, 0.29);
+    padding: 1em;
+    border-radius: 1em;
+    text-align: center;
+    align-content: center;
+    /*display: inline-block;*/
 }
 
-.toDo {
-    background: #1f4969;
+.quote figcaption,
+.quote blockquote {
+    margin: 1em;
+    font: 1.8rem/1.4 Georgia, serif;
 }
