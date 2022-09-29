@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {styleTodo} from "./elements";
 import {RadioBtnGroup} from "../../utils/RadioBtnGroup";
 
 export default class Todos extends Component {
@@ -12,5 +11,3 @@ export default class Todos extends Component {
         )
     }
 }
-
-

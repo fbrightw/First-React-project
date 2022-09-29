@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from '@mui/material';
-import AddTodo from "./AddTodo";
+import {FormControlLabel, Radio} from '@mui/material';
 import SubmitForm from "./SubmitForm";
 import TasksList from "./TasksList";
 
@@ -37,9 +36,7 @@ export class RadioBtnGroup extends Component {
     render() {
         return (
             <div>
-                <h1>TO DO </h1>
                 <section>
-                    {/*<AddTodo onClick={this.addRadioButton}/>*/}
                     <SubmitForm addTask={this.addTask}/>
                     <TasksList tasks={this.state.tasks} removeTask={this.removeTask}/>
                 </section>
