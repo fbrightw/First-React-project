@@ -6,10 +6,18 @@
 
 .home {
     background: rgba(128, 154, 199, 0.2);
+    margin: 0;
+    padding: 0;
+}
+
+.video {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
 }
 
 .toDo {
-    background: rgb(57, 95, 124);;
+    background: rgb(57, 95, 124, .6);
 }
 
 .particles{
@@ -22,19 +30,35 @@
 }
 
 .quote {
-    padding: 1em;
-    border-radius: 1em;
     text-align: center;
     align-content: center;
-    margin-left: 50vh;
-    margin-right: 50vh;
-    margin-top: 20vh;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background: rgb(0, 0, 0, .9);
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .quote figcaption,
 .quote blockquote {
     margin: 1em;
-    font: 1.8rem/1.4 Georgia, serif;
+    font: 1.8rem/1.4 Georgia, Fantasy;
 }
 
 .Auth-form-container {

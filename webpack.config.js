@@ -44,9 +44,9 @@ module.exports = {
 
     module: {
         rules: [
-            { test: /\.(html)$/, use: {
-                    loader: 'html-loader'
-                },
+            {
+                test: /\.html$/,
+                use: ["html-loader"]
             },
             {
                 test: /\.js$/,
@@ -65,6 +65,15 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: "babel-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(mp4|svg|png|jpe?g|gif)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[hash].[ext]"
+                    }
+                }
             }
         ],
     }
