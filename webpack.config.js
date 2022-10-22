@@ -1,6 +1,6 @@
 const path = require('path');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // Импортируем плагин
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack"); // Импортируем плагин
 
 let mode = 'development'; // По умолчанию режим development
 if (process.env.NODE_ENV === 'production') { // Режим production, если
@@ -8,10 +8,13 @@ if (process.env.NODE_ENV === 'production') { // Режим production, если
     mode = 'production';
 }
 
+const backendUrl = 'http://localhost:8080'
+
 const plugins = [
     new HtmlWebpackPlugin({
         template: './public/index.html', // Данный html будет использован как шаблон
     }),
+    // new webpack.HotModuleReplacementPlugin(),
 ]; // Создаем массив плагинов
 
 module.exports = {
@@ -25,7 +28,9 @@ module.exports = {
 
         // assetModuleFilename: 'assets/[hash][ext][query]', // Все ассеты будут
         // // складываться в dist/assets
-
+        // publicPath: "/dist/",
+        filename: "[name].js",
+        // sourceMapFilename: "dist.map",
         clean: true, // Очищает директорию dist перед обновлением бандла
     },
 
@@ -37,9 +42,18 @@ module.exports = {
 
     devtool: 'source-map', // позволяет дебажить
     devServer: {
-        hot: true, // Включает автоматическую перезагрузку страницы при изменениях
-        // inline: true,
-        port: 3000
+        historyApiFallback: true,
+        open: true,
+        compress: true,
+        hot: true,
+        port: 8081,
+        proxy: {
+            '/login': {
+                target: 'http://localhost:3000',
+                router: () => backendUrl,
+                // logLevel: 'debug' /*optional*/
+            }
+        }
     },
 
     module: {
@@ -67,7 +81,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(mp4|svg|png|jpe?g|gif)$/,
+                test: /\.(mp4|png|jpe?g|gif)$/,
                 use: {
                     loader: "file-loader",
                     options: {

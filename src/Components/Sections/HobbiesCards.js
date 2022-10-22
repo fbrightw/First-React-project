@@ -1,6 +1,12 @@
 import React, {Component} from 'react'
 
 
-export class Hobbies extends Component {
+function HobbiesCards() {
+    return (
+        <li className="cards__item">
 
+        </li>
+
+    )
 }
+

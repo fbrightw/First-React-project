@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useEffect, useState} from "react"
 import {ParticlesBackground} from "../Body/ParticlesBackground";
 
 export default function Login () {
@@ -6,6 +6,24 @@ export default function Login () {
 
     const changeAuthMode = () => {
         setAuthMode(authMode === "signin" ? "signup" : "signin")
+    }
+
+    const onSubmit = () => {
+        useEffect(() => {
+            // declare the data fetching function
+            console.log("sdfgb", window.location.href)
+            const fetchData = async () => {
+                const url = window.location.href
+                const data = await fetch(url + '/login')
+                    .then((response) => {
+                            if (response.status === 200) {
+                                () => DICTIONARY.homePage()
+                            }
+                        }
+                    )
+
+            }
+        })
     }
 
     if (authMode === "signin") {
@@ -38,7 +56,8 @@ export default function Login () {
                             />
                         </div>
                         <div className="d-grid gap-2 mt-3">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit" className="btn btn-primary"
+                            onChange={onSubmit}>
                                 Submit
                             </button>
                         </div>

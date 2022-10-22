@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {links} from "./data"
+import {links} from "../../utils/data"
 import {Link} from "react-router-dom";
 import {Navbar} from "react-bootstrap";
 import Nav from 'react-bootstrap/Nav';
@@ -27,13 +27,21 @@ export default class NavBar extends  Component {
                              style={{ maxHeight: '100px' }}
                              navbarScroll>
                             <Nav.Link href="#home">
-                                {links[0].svg}Home
+                                {/*{links[0].svg}*/}
+                                Home
                             </Nav.Link>
-                            <Nav.Link href="#todo">To do list</Nav.Link>
+                            <Nav.Link href="#todo">
+                                To do list
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <Link to="/login">
-                        {links[2].svg}Login
+                    <Link to={"/login"}
+                          style={{
+                              "text-decoration": "none",
+                              "color": "black"
+                    }}>
+                        {/*{links[2].svg}*/}
+                        Login
                     </Link>
                 </Container>
             </Navbar>
