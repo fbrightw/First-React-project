@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const webpack = require("webpack"); // Импортируем плагин
 
 let mode = 'development'; // По умолчанию режим development
@@ -14,33 +15,41 @@ const plugins = [
     new HtmlWebpackPlugin({
         template: './public/index.html', // Данный html будет использован как шаблон
     }),
-    // new webpack.HotModuleReplacementPlugin(),
+    // new CleanWebpackPlugin()
 ]; // Создаем массив плагинов
 
 module.exports = {
     mode, // Сокращенная запись mode: mode в ES6+
     plugins,
-    entry: './src/index.js', // Указываем точку входа - главный модуль приложения,
+
+    entry: {
+        main: './src/index.js'
+    },
+
+    // Указываем точку входа - главный модуль приложения,
     // в который импортируются все остальные
     output: {
-        path: path.resolve(__dirname, 'dist'), // Директория, в которой будет
-        // размещаться итоговый бандл, папка dist в корне приложения
+        path: path.resolve(__dirname, 'dist'),
 
         // assetModuleFilename: 'assets/[hash][ext][query]', // Все ассеты будут
-        // // складываться в dist/assets
-        // publicPath: "/dist/",
-        filename: "[name].js",
+        filename: "[name].bundle.js",
         // sourceMapFilename: "dist.map",
-        clean: true, // Очищает директорию dist перед обновлением бандла
+        // clean: true, // Очищает директорию dist перед обновлением бандла
     },
 
     resolve: {
-        extensions: [".js"]
+        extensions: ['.js', '.jsx']
+    },
+
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
     },
 
     watch: true,
 
-    devtool: 'source-map', // позволяет дебажить
+    // devtool: 'source-map', // позволяет дебажить
     devServer: {
         historyApiFallback: true,
         open: true,
@@ -82,12 +91,13 @@ module.exports = {
             },
             {
                 test: /\.(mp4|png|jpe?g|gif)$/,
-                use: {
-                    loader: "file-loader",
-                    options: {
-                        name: "[name].[hash].[ext]"
-                    }
-                }
+                use: ['file-loader']
+                // use: {
+                //     loader: "file-loader",
+                //     options: {
+                //         name: "[name].[hash].[ext]"
+                //     }
+                // }
             }
         ],
     }

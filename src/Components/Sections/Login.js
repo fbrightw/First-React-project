@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {ParticlesBackground} from "../Body/ParticlesBackground";
+import {ParticlesBackground} from "../../utils/ParticlesBackground";
 
 export default function Login () {
     let [authMode, setAuthMode] = useState("signin")
