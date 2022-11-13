@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CSS/Task.css';
+import './index.css'
 
 class Task extends React.Component{
     constructor(props){

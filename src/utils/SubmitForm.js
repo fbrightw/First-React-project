@@ -1,11 +1,13 @@
 import React from 'react';
-import '../CSS/SubmitForm.css';
+import './index.css';
 
 class SubmitForm extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = { tasksCount: 0 };
+        this.state = {
+            tasksCount: 0
+        };
 
         this.addItem = this.addItem.bind(this);
     }
@@ -29,12 +31,19 @@ class SubmitForm extends React.Component{
 
     render(){
         return (
-            <div className='form'>
-                <form onSubmit={this.addItem}>
-                    <input className='input' ref={(a) => this._inputElement = a} placeholder='Add Task' />
-                    <button className='add-button' type='submit'>Add</button>
-                </form>
-            </div>
+            <form onSubmit={this.addItem}>
+                <input
+                    className='input'
+                    ref={(a) => this._inputElement = a}
+                    placeholder='Add Task'
+                />
+                <button
+                    className='add-button'
+                    type='submit'
+                >
+                    Add
+                </button>
+            </form>
         );
     }
 }

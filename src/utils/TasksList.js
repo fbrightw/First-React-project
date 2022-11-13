@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CSS/TasksList.css'
+import './index.css'
 import Task from './Task';
 
 class TasksList extends React.Component{
@@ -8,7 +8,15 @@ class TasksList extends React.Component{
         return (
             <div className='tasks-list-container'>
                 <div className='tasks-list'>
-                    { this.props.tasks.map(task => <Task key={task.key} text={task.text} id={task.id} removeTask={this.props.removeTask}/>) }
+                    {this.props.tasks.map(task =>
+                            <Task
+                                id={task.id}
+                                key={task.key}
+                                text={task.text}
+                                removeTask={this.props.removeTask}
+                            />
+                        )
+                    }
                 </div>
             </div>
         );
