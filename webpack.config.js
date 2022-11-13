@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const webpack = require("webpack"); // Импортируем плагин
 
 let mode = 'development'; // По умолчанию режим development
 if (process.env.NODE_ENV === 'production') { // Режим production, если
@@ -16,25 +15,19 @@ const plugins = [
         template: './public/index.html', // Данный html будет использован как шаблон
     }),
     // new CleanWebpackPlugin()
-]; // Создаем массив плагинов
+];
 
 module.exports = {
-    mode, // Сокращенная запись mode: mode в ES6+
+    mode,
     plugins,
 
     entry: {
         main: './src/index.js'
     },
 
-    // Указываем точку входа - главный модуль приложения,
-    // в который импортируются все остальные
     output: {
         path: path.resolve(__dirname, 'dist'),
-
-        // assetModuleFilename: 'assets/[hash][ext][query]', // Все ассеты будут
         filename: "[name].bundle.js",
-        // sourceMapFilename: "dist.map",
-        // clean: true, // Очищает директорию dist перед обновлением бандла
     },
 
     resolve: {
@@ -49,7 +42,7 @@ module.exports = {
 
     watch: true,
 
-    // devtool: 'source-map', // позволяет дебажить
+    devtool: 'source-map',
     devServer: {
         historyApiFallback: true,
         open: true,
@@ -60,7 +53,6 @@ module.exports = {
             '/login': {
                 target: 'http://localhost:3000',
                 router: () => backendUrl,
-                // logLevel: 'debug' /*optional*/
             }
         }
     },
@@ -77,12 +69,11 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        cacheDirectory: true, // Использование кэша для избежания рекомпиляции
-                        // при каждом запуске
+                        cacheDirectory: true,
                     },
 
                 },
-            }, // Добавляем загрузчик для html
+            },
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             {
                 test: /\.jsx?$/,
