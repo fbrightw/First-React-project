@@ -8,7 +8,7 @@
 
 
 ## General info
-This project is created to help people to get the suitible dog breed by searching through them and getting info about them
+Project's main goal is to make user's life easier by organizing things, like as daily routine, work tasks and so on;
 	
 ## Technologies
 Project is created with:
