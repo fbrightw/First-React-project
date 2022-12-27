@@ -1,4 +1,4 @@
-# ToDo list app
+# to-do list app
 
 
 ## Table of contents
