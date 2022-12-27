@@ -26,7 +26,7 @@ class Task extends React.Component{
 
     render(){
         return (
-            <div className='task-container'>
+            <div>
                 <div className='task-container-background' style={{backgroundColor: this.state.backgroundColor}}>
                     <div className='task-term-container'>
                         <h2 className='task-term'>{this.props.text}</h2>
