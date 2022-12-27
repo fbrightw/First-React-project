@@ -40,7 +40,9 @@ module.exports = {
         }
     },
 
-    watch: true,
+    watchOptions: {
+        poll: 1000
+    },
 
     devtool: 'source-map',
     devServer: {

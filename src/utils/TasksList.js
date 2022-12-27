@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css'
 import Task from './Task';
 
 class TasksList extends React.Component{

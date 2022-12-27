@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 
 class SubmitForm extends React.Component{
 
@@ -14,7 +13,7 @@ class SubmitForm extends React.Component{
 
     addItem(e) {
         if (this._inputElement.value !== "") {
-            var newItem = {
+            let newItem = {
                 text: this._inputElement.value,
                 id: this.state.tasksCount,
                 key: Date.now()

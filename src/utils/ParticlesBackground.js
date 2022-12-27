@@ -1,6 +1,5 @@
 import React from 'react';
 import Particles from "react-tsparticles";
-import "../Components/Sections/index.css"
 import styled from "styled-components";
 
 export const  ParticlesBackground = () => {

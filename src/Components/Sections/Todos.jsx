@@ -29,15 +29,13 @@ export default class Todos extends Component {
 
     render() {
         return (
-            <div className='form'>
-                <SubmitForm
-                    addTask={this.addTask}
-                />
+            <>
+                <SubmitForm addTask={this.addTask}/>
                 <TasksList
                     tasks={this.state.tasks}
                     removeTask={this.removeTask}
                 />
-            </div>
+            </>
         )
     }
 }

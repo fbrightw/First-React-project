@@ -1,14 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*sections*/
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .home,
-.toDo {
+#todo {
     min-height: 90vh;
     text-align: center;
 }
 
-.home {
-    /*background: rgba(128, 154, 199, 0.2);*/
-    margin: 0;
-    padding: 0;
-}
+/*home*/
 
 .video {
     width: 100%;
@@ -16,10 +26,7 @@
     object-fit: cover;
 }
 
-.toDo {
-    /*background: rgb(57, 95, 124, .6);*/
-}
-
+/*auth background*/
 .particles{
     position: fixed;
     top: 0;
@@ -96,4 +103,3 @@ label {
     font-weight: 600;
     color: rgb(34, 34, 34);
 }
-

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './index.css'
 import Home from "./Home";
 import Todos from "./Todos";
 
@@ -8,10 +7,7 @@ export default class Sections extends Component {
         return (
             <div>
                 <Home />
-                <section
-                    className='toDo'
-                    id="todo"
-                >
+                <section id="todo">
                     <Todos />
                 </section>
             </div>
