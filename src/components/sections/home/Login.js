@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {ParticlesBackground} from "../../utils/ParticlesBackground";
+import {ParticlesBackground} from "../../../utils/ParticlesBackground";
 
 export default function Login () {
     let [authMode, setAuthMode] = useState("signin")
@@ -62,7 +62,7 @@ export default function Login () {
                             </button>
                         </div>
                         <p className="text-center mt-2">
-                            Forgot <a href="#">password?</a>
+                            Forgot <a href="src/components/sections/home/Login#">password?</a>
                         </p>
                     </div>
                 </form>
@@ -113,7 +113,7 @@ export default function Login () {
                         </button>
                     </div>
                     <p className="text-center mt-2">
-                        Forgot <a href="#">password?</a>
+                        Forgot <a href="src/components/sections/home/Login#">password?</a>
                     </p>
                 </div>
             </form>

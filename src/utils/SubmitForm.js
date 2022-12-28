@@ -35,7 +35,7 @@ class SubmitForm extends React.Component{
                     ref={(a) => this._inputElement = a}
                     placeholder='Add Task'
                 />
-                <button type='submit'>Add</button>
+                {/*<button type='submit'>Add</button>*/}
             </form>
         );
     }

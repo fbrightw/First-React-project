@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Home from "./Home";
-import Todos from "./Todos";
+import Home from "./home/Home";
+import Todos from "./todotasks/Todos";
 
 export default class Sections extends Component {
     render() {
@@ -9,8 +9,13 @@ export default class Sections extends Component {
                 <Home />
                 <section id="todo">
                     <Todos />
+                    {/*<PersonalCalendar />*/}
                 </section>
+              {/*<section >*/}
+              {/*      <Words />*/}
+              {/*</section>*/}
             </div>
         );
     }
 }
+

@@ -67,7 +67,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/, // не обрабатываем файлы из node_modules
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -76,7 +76,9 @@ module.exports = {
 
                 },
             },
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.css$/,
+                use: ['style-loader', 'css-loader',  'postcss-loader']
+            },
             {
                 test: /\.jsx?$/,
                 loader: "babel-loader",
@@ -85,12 +87,6 @@ module.exports = {
             {
                 test: /\.(mp4|png|jpe?g|gif)$/,
                 use: ['file-loader']
-                // use: {
-                //     loader: "file-loader",
-                //     options: {
-                //         name: "[name].[hash].[ext]"
-                //     }
-                // }
             }
         ],
     }

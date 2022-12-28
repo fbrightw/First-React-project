@@ -1,12 +1,14 @@
 import React from 'react';
-import Sections from "./Components/Sections";
-import NavBar from "./Components/NavBar";
+import Sections from "./components/sections";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
     return (
-        <div style={{background: '#395F7C4C'}}>
-            <NavBar/>
+        <div className="bg-cyan-600">
+          {/*gonna be on the left  */}
+          {/*  <NavBar/>*/}
+            {/**/}
             <Sections/>
         </div>
     );

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import SubmitForm from "../../utils/SubmitForm";
-import TasksList from "../../utils/TasksList";
+import SubmitForm from "../../../utils/SubmitForm";
+import TasksList from "../../../utils/TasksList";
+import PersonalCalendar from "./PersonalCalendar";
 
 export default class Todos extends Component {
 
@@ -30,11 +31,14 @@ export default class Todos extends Component {
     render() {
         return (
             <div>
-                <SubmitForm addTask={this.addTask}/>
-                <TasksList
-                    tasks={this.state.tasks}
-                    removeTask={this.removeTask}
-                />
+                <div className="tasks">
+                    <SubmitForm addTask={this.addTask}/>
+                    <TasksList
+                        tasks={this.state.tasks}
+                        removeTask={this.removeTask}
+                    />
+                </div>
+                <PersonalCalendar />
             </div>
         )
     }

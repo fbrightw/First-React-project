@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -13,12 +17,28 @@ section {
 }
 
 section > div {
-    min-width: 50vw;
+    display: flex;
+    min-width: 80vw;
+}
+
+.tasks {
+    flex-direction: column;
+    flex: 1;
+    border: solid 1px transparent;
+    border-right-color: gray;
+    border-left-color: gray;
+    min-height: 90vh;
+}
+
+.calendar {
+    min-width: 30%;
+    border: solid 1px transparent;
+    border-right-color: gray;
 }
 
 .home,
 #todo {
-    min-height: 90vh;
+    min-height: 100vh;
     text-align: center;
 }
 
@@ -34,7 +54,7 @@ section > form {
     flex-direction: row;
 }
 
-/*todo input*/
+/*todotasks input*/
 form > input {
     padding: 10px;
     border-radius: 40px;

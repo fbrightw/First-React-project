@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import videoBackground from "../../../public/night_sky.mp4"
+import videoBackground from "../../../../public/night_sky.mp4"
 
 class Home extends Component {
     render() {
