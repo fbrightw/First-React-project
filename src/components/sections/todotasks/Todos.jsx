@@ -33,6 +33,9 @@ export default class Todos extends Component {
             <div>
                 <div className="tasks">
                     <SubmitForm addTask={this.addTask}/>
+                    <div className="font-sans my-10 text-2xl font-light tracking-wide">
+                        Today's task:
+                    </div>
                     <TasksList
                         tasks={this.state.tasks}
                         removeTask={this.removeTask}

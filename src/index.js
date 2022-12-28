@@ -5,6 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Route, Routes} from "react-router"
 import Login from "./components/sections/home/Login";
 import './index.css'
+import './styles.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

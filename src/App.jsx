@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div className="bg-cyan-600">
+        <div>
           {/*gonna be on the left  */}
           {/*  <NavBar/>*/}
             {/**/}

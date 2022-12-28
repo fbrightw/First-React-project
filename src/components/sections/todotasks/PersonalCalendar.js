@@ -15,7 +15,7 @@ export default function PersonalCalendar() {
   return (
       <div className="calendar">
         <Datepicker
-            primaryColor={"black"}
+            primaryColor={"dark"}
             value={value}
             onChange={handleValueChange}
         />
