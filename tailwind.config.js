@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx}', "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js"],
+  content: ['./src/**/*.{js,jsx}'],
   theme: {
     extend: {},
   },

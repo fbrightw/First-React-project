@@ -1,24 +1,29 @@
-import React, {Component, useState} from 'react';
-import Datepicker from "react-tailwindcss-datepicker";
+import React from 'react';
+import FullCalendar from '@fullcalendar/react'
+import TimeGrid from '@fullcalendar/timegrid'
 
-export default function PersonalCalendar() {
-  const [value, setValue] = useState({
-    startDate: new Date(),
-    endDate: new Date().setMonth(11)
-  });
+const events = [
+  { title: 'Meeting', start: new Date() }
+]
 
-  const handleValueChange = (newValue) => {
-    console.log("newValue:", newValue);
-    setValue(newValue);
-  }
-
+export default  function PersonalCalendar() {
   return (
-      <div className="calendar">
-        <Datepicker
-            primaryColor={"dark"}
-            value={value}
-            onChange={handleValueChange}
+        <FullCalendar
+            plugins={[TimeGrid]}
+            initialView='timeGridWeek'
+            weekends={false}
+            events={events}
+            eventContent={renderEventContent}
         />
-      </div>
-  );
+  )
+}
+
+// a custom render function
+function renderEventContent(eventInfo) {
+  return (
+      <>
+        <b>{eventInfo.timeText}</b>
+        <i>{eventInfo.event.title}</i>
+      </>
+  )
 }
