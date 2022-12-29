@@ -1,9 +1,6 @@
 import React, {Component} from "react";
-import {links} from "../../utils/data"
-import {Link} from "react-router-dom";
-import {Navbar} from "react-bootstrap";
-import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
+import './navbar.css'
+import { slide as Menu } from 'react-burger-menu'
 
 export default class NavBar extends  Component {
     constructor(props) {
@@ -20,31 +17,12 @@ export default class NavBar extends  Component {
 
     render() {
         return (
-            <Navbar bg="light" expand="lg" fixed="top">
-                <Container fluid>
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav className="me-auto my-2 my-lg-0"
-                             style={{ maxHeight: '100px' }}
-                             navbarScroll>
-                            <Nav.Link href="#home">
-                                {/*{links[0].svg}*/}
-                                Home
-                            </Nav.Link>
-                            <Nav.Link href="#todo">
-                                To do list
-                            </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                    <Link to={"/login"}
-                          style={{
-                              "text-decoration": "none",
-                              "color": "black"
-                    }}>
-                        {/*{links[2].svg}*/}
-                        Login
-                    </Link>
-                </Container>
-            </Navbar>
-        )
+            <Menu>
+                <a id="home" className="menu-item" href="/">Home</a>
+                <a id="tasks" className="menu-item" href="/tasks">Tasks</a>
+                {/*<a id="contact" className="menu-item" href="/contact">Contact</a>*/}
+                {/*<a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>*/}
+            </Menu>
+        );
     }
 }

@@ -14,7 +14,7 @@ section {
 
 section > div {
     display: flex;
-    min-width: 100vw;
+    min-width: 90vw;
 }
 
 .tasks {
