@@ -18,7 +18,7 @@ export default class Todos extends Component {
     addTask(task) {
         this.setState((prevState) => {
             return {
-                tasks: prevState.tasks.concat(task)
+                tasks: prevState.tasks.concat(task),
             };
         });
     }
@@ -38,6 +38,7 @@ export default class Todos extends Component {
                     </div>
                     <TasksList
                         tasks={this.state.tasks}
+                        number={this.state.number}
                         removeTask={this.removeTask}
                     />
                 </div>

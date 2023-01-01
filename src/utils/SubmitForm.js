@@ -8,18 +8,18 @@ class SubmitForm extends React.Component{
             tasksCount: 0
         };
 
-        this.addItem = this.addItem.bind(this);
+        this.addTask = this.addTask.bind(this);
     }
 
-    addItem(e) {
+    addTask(e) {
         if (this._inputElement.value !== "") {
-            let newItem = {
+            let newTask = {
                 text: this._inputElement.value,
                 id: this.state.tasksCount,
                 key: Date.now()
             };
 
-            this.props.addTask(newItem);
+            this.props.addTask(newTask);
 
             this.state.tasksCount++;
             this._inputElement.value = "";
@@ -30,12 +30,11 @@ class SubmitForm extends React.Component{
 
     render(){
         return (
-            <form onSubmit={this.addItem}>
+            <form onSubmit={this.addTask}>
                 <input
                     ref={(a) => this._inputElement = a}
-                    placeholder='Add Task'
+                    placeholder='Add new task'
                 />
-                {/*<button type='submit'>Add</button>*/}
             </form>
         );
     }

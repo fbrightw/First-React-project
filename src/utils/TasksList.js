@@ -13,8 +13,7 @@ class TasksList extends React.Component{
                   text={task.text}
                   removeTask={this.props.removeTask}
               />
-          )
-          }
+          )}
         </div>
     )
   }

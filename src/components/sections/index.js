@@ -9,11 +9,7 @@ export default class Sections extends Component {
                 <Home />
                 <section id="todo">
                     <Todos />
-                    {/*<PersonalCalendar />*/}
                 </section>
-              {/*<section >*/}
-              {/*      <Words />*/}
-              {/*</section>*/}
             </div>
         );
     }
