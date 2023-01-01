@@ -15,7 +15,6 @@ class Task extends React.Component{
     render(){
         return (
             <div className="task-container">
-                {this.props.id + '.'}
                 <input type="checkbox" className="larger"/>
                 <div className="task-text">{this.props.text}</div>
                 <div className="close">

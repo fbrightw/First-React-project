@@ -95,15 +95,19 @@ form > button {
     height: 20px;
     -webkit-appearance: none;
     background: white;
+    border: solid 1px transparent;
+    border-right-color: black;
 }
 
 .task-container .close {
-    width: 20px;
-    height: 20px;
+    display: flex;
+    align-items: center;
     margin-left: auto;
     opacity: 0.2;
     cursor: pointer;
     transition: opacity ease 0.5s;
+    border: solid 1px transparent;
+    border-left-color: black;
 }
 
 .task-container .close:hover {
