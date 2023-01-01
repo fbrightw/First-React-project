@@ -4,10 +4,6 @@
   "private": true,
   "dependencies": {
     "@emotion/styled": "^11.10.4",
-    "@fullcalendar/core": "^6.0.2",
-    "@fullcalendar/daygrid": "^6.0.2",
-    "@fullcalendar/react": "^6.0.2",
-    "@fullcalendar/timegrid": "^6.0.2",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.8.3",
     "@mui/styled-engine": "^5.10.8",
