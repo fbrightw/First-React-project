@@ -1,6 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const smp = new SpeedMeasurePlugin();
+
 
 let mode = 'development'; // По умолчанию режим development
 if (process.env.NODE_ENV === 'production') { // Режим production, если
@@ -8,16 +12,17 @@ if (process.env.NODE_ENV === 'production') { // Режим production, если
     mode = 'production';
 }
 
-const backendUrl = 'http://localhost:8080'
+// const backendUrl = 'http://localhost:8080'
 
 const plugins = [
     new HtmlWebpackPlugin({
         template: './public/index.html', // Данный html будет использован как шаблон
     }),
+    new webpack.ProgressPlugin(),
     // new CleanWebpackPlugin()
 ];
 
-module.exports = {
+module.exports = smp.wrap({
     mode,
     plugins,
 
@@ -28,6 +33,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].bundle.js",
+        clean: true
     },
 
     resolve: {
@@ -35,59 +41,70 @@ module.exports = {
     },
 
     optimization: {
+        runtimeChunk: 'single',
         splitChunks: {
-            chunks: "all"
-        }
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
     },
 
     watchOptions: {
         poll: 1000
     },
-
+    target: 'web',
     devtool: 'source-map',
-    devServer: {
-        historyApiFallback: true,
-        open: true,
-        compress: true,
-        hot: true,
-        port: 8081,
-        proxy: {
-            '/login': {
-                target: 'http://localhost:3000',
-                router: () => backendUrl,
-            }
-        }
-    },
+    // devServer: {
+    //     // historyApiFallback: true,
+    //     // open: true,
+    //     // compress: true,
+    //     // hot: true,
+    //     port: 8081,
+    //     proxy: {
+    //         '/login': {
+    //             target: 'http://localhost:3000',
+    //             router: () => backendUrl,
+    //         }
+    //     }
+    // },
 
     module: {
         rules: [
             {
-                test: /\.html$/,
-                use: ["html-loader"]
-            },
-            {
-                test: /\.js$/,
+                test: /\.(js)x?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
+                    loader: "babel-loader",
                     options: {
-                        cacheDirectory: true,
+                        presets: [
+                            "@babel/preset-env",
+                            "@babel/preset-react"
+                        ],
+                        cacheDirectory: true
                     },
-
                 },
+            },
+            {
+                test: /\.html$/,
+                use: ["html-loader"]
             },
             { test: /\.css$/i,
                 use: ['style-loader', 'css-loader',  'postcss-loader']
             },
             {
-                test: /\.jsx?$/,
-                loader: "babel-loader",
-                exclude: /node_modules/
-            },
-            {
                 test: /\.(mp4|png|jpe?g|gif)$/,
-                use: ['file-loader']
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        cacheDirectory: true,
+                    },
+
+                },
             }
         ],
     }
-}
+})

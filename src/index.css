@@ -83,10 +83,12 @@ form > button {
 
 .task-container {
     display: flex;
+    align-items: center;
     padding: 5px;
     margin: 10px;
     border-radius: 5px;
-    width: 50%;
+    width: 40%;
+    height: 50%;
     background: rgba(211, 211, 211, 0.45);
 }
 
@@ -96,8 +98,13 @@ form > button {
     -webkit-appearance: none;
     background: white;
     border: solid 1px transparent;
-    border-right-color: black;
+    cursor: pointer;
 }
+
+.task-container input.larger:hover {
+    background: darkseagreen;
+}
+
 
 .task-container .close {
     display: flex;
@@ -115,8 +122,9 @@ form > button {
 }
 
 .task-text {
+    display: flex;
+    margin-left: 10px;
     flex: 1;
-    justify-content: flex-start;
 }
 
 /*.close::before,*/

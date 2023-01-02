@@ -1,28 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 
-class Task extends React.Component{
-    constructor(props){
-        super(props);
+export default function Task(props) {
 
-        this.removeTask = this.removeTask.bind(this);
-    }
+  const [isClicked, onIsClicked] = useState(false);
 
-    removeTask(){
-        this.props.removeTask(this.props.id);
-    }
+  function removeTask(){
+    props.removeTask(props.id);
+  }
 
-    render(){
-        return (
-            <div className="task-container">
-                <input type="checkbox" className="larger"/>
-                <div className="task-text">{this.props.text}</div>
-                <div className="close">
-                    <CloseIcon fontSize="small"/>
-                </div>
-            </div>
-        );
-    }
+  function onCheckboxClick(e) {
+    console.log("onCLick yuj", e)
+  }
+
+  function onTextChanging(e) {
+    console.log("text", e)
+  }
+
+  return (
+      <div className="task-container">
+        <input type="checkbox" className="larger" onClick={onCheckboxClick}/>
+        <div className="task-text" onChange={onTextChanging}>{props.text}</div>
+        <div className="close" onClick={removeTask}>
+          <CloseIcon fontSize="small"/>
+        </div>
+      </div>
+  )
 }
-
-export default Task;
