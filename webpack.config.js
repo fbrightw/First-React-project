@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') { // Режим production, если
     mode = 'production';
 }
 
-// const backendUrl = 'http://localhost:8080'
+const backendUrl = 'http://localhost:8080'
 
 const plugins = [
     new HtmlWebpackPlugin({
@@ -58,19 +58,19 @@ module.exports = smp.wrap({
     },
     target: 'web',
     devtool: 'source-map',
-    // devServer: {
-    //     // historyApiFallback: true,
-    //     // open: true,
-    //     // compress: true,
-    //     // hot: true,
-    //     port: 8081,
-    //     proxy: {
-    //         '/login': {
-    //             target: 'http://localhost:3000',
-    //             router: () => backendUrl,
-    //         }
-    //     }
-    // },
+    devServer: {
+        // historyApiFallback: true,
+        // open: true,
+        // compress: true,
+        // hot: true,
+        port: 8081,
+        proxy: {
+            '/login': {
+                target: 'http://localhost:3000',
+                router: () => backendUrl,
+            }
+        }
+    },
 
     module: {
         rules: [

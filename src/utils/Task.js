@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import CloseIcon from '@mui/icons-material/Close';
 
 export default function Task(props) {
 
@@ -22,7 +21,7 @@ export default function Task(props) {
         <input type="checkbox" className="larger" onClick={onCheckboxClick}/>
         <div className="task-text" onChange={onTextChanging}>{props.text}</div>
         <div className="close" onClick={removeTask}>
-          <CloseIcon fontSize="small"/>
+          <i className="bi bi-x"></i>
         </div>
       </div>
   )
