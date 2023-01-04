@@ -5,7 +5,6 @@ const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const smp = new SpeedMeasurePlugin();
 
-
 let mode = 'development'; // По умолчанию режим development
 if (process.env.NODE_ENV === 'production') { // Режим production, если
                                              // при запуске вебпака было указано --mode=production
@@ -33,6 +32,7 @@ module.exports = smp.wrap({
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].bundle.js",
+        publicPath: '/',
         clean: true
     },
 
@@ -59,17 +59,17 @@ module.exports = smp.wrap({
     target: 'web',
     devtool: 'source-map',
     devServer: {
-        // historyApiFallback: true,
-        // open: true,
-        // compress: true,
-        // hot: true,
-        port: 8081,
-        proxy: {
-            '/login': {
-                target: 'http://localhost:3000',
-                router: () => backendUrl,
-            }
-        }
+        historyApiFallback: true,
+    //     // open: true,
+    //     // compress: true,
+    //     // hot: true,
+    //     port: 8081,
+    //     proxy: {
+    //         '/login': {
+    //             target: 'http://localhost:3000',
+    //             router: () => backendUrl,
+    //         }
+    //     }
     },
 
     module: {
