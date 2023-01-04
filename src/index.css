@@ -7,6 +7,51 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.home,
+#todo {
+    /*min-height: 100vh;*/
+    text-align: center;
+}
+
+/*home*/
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quote {
+    text-align: center;
+    align-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, .5);
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.quote figcaption,
+.quote blockquote {
+    margin: 1em;
+    font: 1.8rem/1.4 Georgia, Fantasy;
+}
+
 /*sections*/
 section {
     display: flex;
@@ -31,20 +76,6 @@ section > div {
     min-width: 30%;
     border: solid 1px transparent;
     align-content: center;
-    /*border-right-color: gray;*/
-}
-
-.home,
-#todo {
-    min-height: 100vh;
-    text-align: center;
-}
-
-/*home*/
-.video {
-    width: 100%;
-    height: 90vh;
-    object-fit: cover;
 }
 
 section > form {
@@ -147,35 +178,3 @@ form > button {
 /*.close::after {*/
 /*    transform: rotate(-45deg);*/
 /*}*/
-
-.quote {
-    text-align: center;
-    align-content: center;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90vh;
-    background: rgb(0, 0, 0, .5);
-}
-
-.content {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.quote figcaption,
-.quote blockquote {
-    margin: 1em;
-    font: 1.8rem/1.4 Georgia, Fantasy;
-}
