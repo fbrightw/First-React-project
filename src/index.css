@@ -9,14 +9,14 @@
 
 .home,
 #todo {
-    /*min-height: 100vh;*/
+    min-height: 100vh;
     text-align: center;
 }
 
 /*home*/
 .video {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
 }
 
@@ -108,7 +108,7 @@ form > button {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    min-width: 60%;
+    min-width: 70%;
     min-height: 80%;
     z-index: 30;
     margin: 30px;
@@ -122,13 +122,15 @@ form > button {
     border-radius: 5px;
     width: 40%;
     height: 50%;
-    background: rgba(211, 211, 211, 0.45);
+    background: rgba(211, 211, 211, 0.29);
 }
 
 .task-container input.larger {
     width: 20px;
     height: 20px;
+    margin: 5px;
     -webkit-appearance: none;
+    border-radius: 2px;
     background: white;
     border: solid 1px transparent;
     cursor: pointer;
@@ -138,16 +140,18 @@ form > button {
     background: darkseagreen;
 }
 
-
 .task-container .close {
     display: flex;
     align-items: center;
     margin-left: auto;
     opacity: 0.2;
-    cursor: pointer;
     transition: opacity ease 0.5s;
-    border: solid 1px transparent;
-    border-left-color: black;
+    border: solid 0.5em transparent;
+}
+
+.border {
+    background: lightgrey;
+    height: 10vh;
 }
 
 .task-container .close:hover {
