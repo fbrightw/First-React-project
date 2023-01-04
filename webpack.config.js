@@ -60,16 +60,16 @@ module.exports = smp.wrap({
     devtool: 'source-map',
     devServer: {
         historyApiFallback: true,
-    //     // open: true,
-    //     // compress: true,
-    //     // hot: true,
-    //     port: 8081,
-    //     proxy: {
-    //         '/login': {
-    //             target: 'http://localhost:3000',
-    //             router: () => backendUrl,
-    //         }
-    //     }
+        // open: true,
+        // compress: true,
+        // hot: true,
+        port: 8081,
+        // proxy: {
+        //     '/login': {
+        //         target: 'http://localhost:3000',
+        //         router: () => backendUrl,
+        //     }
+        // }
     },
 
     module: {
