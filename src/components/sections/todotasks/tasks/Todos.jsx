@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import SubmitForm from "../../../utils/SubmitForm";
-import TasksList from "../../../utils/TasksList";
-import PersonalCalendar from "./PersonalCalendar";
+import SubmitForm from "../../../../utils/SubmitForm";
+import TasksList from "./TasksList";
+import PersonalCalendar from "../calendar/PersonalCalendar";
 
 export default class Todos extends Component {
 
@@ -30,7 +30,7 @@ export default class Todos extends Component {
 
     render() {
         return (
-            <div>
+            <div id="todo">
                 <div className="tasks">
                     <SubmitForm addTask={this.addTask}/>
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
