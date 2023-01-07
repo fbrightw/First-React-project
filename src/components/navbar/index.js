@@ -24,7 +24,7 @@ export default class NavBar extends  Component {
                 <a id="login" href="/login">
                     <i className="bi bi-person"></i>
                 </a>
-                <a id="tasks" className="menu-item" href="/#todo">
+                <a id="todo" className="menu-item" href="/#todo">
                     <i className="bi bi-list-task"></i>
                 </a>
                 <a id="table" className="menu-item"  href="/#table">
