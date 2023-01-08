@@ -33,7 +33,7 @@ module.exports = smp.wrap({
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].bundle.js",
         publicPath: '/',
-        clean: true
+        // clean: true
     },
 
     resolve: {

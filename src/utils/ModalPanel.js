@@ -1,16 +1,17 @@
 import React from 'react';
 import {Modal} from "react-bootstrap";
+import Task from "../components/sections/todotasks/tasks/Task";
 
 function ModalPanel(props) {
 
   return (
       <Modal show={props.isClicked}  onHide={() => props.onPlusClick(!props.isClicked)}>
           <Modal.Header closeButton>
-            <Modal.Title>Additional tasks</Modal.Title>
+            <Modal.Title>Additional tasks1</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <p>Modal body text goes here.</p>
+            {props.children}
           </Modal.Body>
       </Modal>
   );

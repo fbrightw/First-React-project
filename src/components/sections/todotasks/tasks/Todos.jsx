@@ -3,6 +3,7 @@ import SubmitForm from "../../../../utils/SubmitForm";
 import TasksList from "./TasksList";
 import PersonalCalendar from "../calendar/PersonalCalendar";
 import ModalPanel from "../../../../utils/ModalPanel";
+import Task from "./Task";
 
 export default class Todos extends Component {
 
@@ -41,10 +42,14 @@ export default class Todos extends Component {
         return (
             <div id="todo">
                 <div className="tasks">
-                    {this.state.isPlusCLicked ? <ModalPanel
+                    {this.state.isPlusCLicked ?
+                        <ModalPanel
                         isClicked={this.state.isPlusCLicked}
                         onPlusClick={(value) => this.onPlusClick(value)}
-                        /> : null}
+                        >
+                            <Task />
+                        </ModalPanel>
+                        : null}
                     <SubmitForm addTask={this.addTask}/>
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
                         Today's task:
