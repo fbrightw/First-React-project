@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import SubmitForm from "../../../../utils/SubmitForm";
 import TasksList from "./TasksList";
-import PersonalCalendar from "../calendar/PersonalCalendar";
+// import PersonalCalendar from "../calendar/PersonalCalendar";
 import ModalPanel from "../../../../utils/ModalPanel";
 import Task from "./Task";
 
@@ -42,14 +42,14 @@ export default class Todos extends Component {
         return (
             <div id="todo">
                 <div className="tasks">
-                    {this.state.isPlusCLicked ?
-                        <ModalPanel
-                        isClicked={this.state.isPlusCLicked}
-                        onPlusClick={(value) => this.onPlusClick(value)}
-                        >
-                            <Task />
-                        </ModalPanel>
-                        : null}
+                    {/*{this.state.isPlusCLicked ?*/}
+                    {/*    <ModalPanel*/}
+                    {/*    isClicked={this.state.isPlusCLicked}*/}
+                    {/*    onPlusClick={(value) => this.onPlusClick(value)}*/}
+                    {/*    >*/}
+                    {/*        <Task />*/}
+                    {/*    </ModalPanel>*/}
+                    {/*    : null}*/}
                     <SubmitForm addTask={this.addTask}/>
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
                         Today's task:
@@ -61,7 +61,7 @@ export default class Todos extends Component {
                         onPlusClick={(value) => this.onPlusClick(value)}
                     />
                 </div>
-                <PersonalCalendar />
+                {/*<PersonalCalendar />*/}
             </div>
         )
     }
