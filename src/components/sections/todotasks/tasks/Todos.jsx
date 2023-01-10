@@ -42,14 +42,6 @@ export default class Todos extends Component {
         return (
             <div id="todo">
                 <div className="tasks">
-                    {/*{this.state.isPlusCLicked ?*/}
-                    {/*    <ModalPanel*/}
-                    {/*    isClicked={this.state.isPlusCLicked}*/}
-                    {/*    onPlusClick={(value) => this.onPlusClick(value)}*/}
-                    {/*    >*/}
-                    {/*        <Task />*/}
-                    {/*    </ModalPanel>*/}
-                    {/*    : null}*/}
                     <SubmitForm addTask={this.addTask}/>
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
                         Today's task:
@@ -61,7 +53,6 @@ export default class Todos extends Component {
                         onPlusClick={(value) => this.onPlusClick(value)}
                     />
                 </div>
-                {/*<PersonalCalendar />*/}
             </div>
         )
     }

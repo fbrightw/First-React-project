@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import StyledIcons from "../../../../utils/StyledIcons";
 
+const defaultObj = {
+  id: 'id' + (new Date()).getTime(),
+  text: null
+}
+
 export default function Task(props) {
 
-  let isClicked = false;
+  const [subTasksArray, setSubTasksArray] = useState([])
 
   function removeTask(){
     props.removeTask(props.id);
@@ -17,13 +22,29 @@ export default function Task(props) {
     console.log("text", e)
   }
 
+  function onPlusClicked() {
+    setSubTasksArray(oldArray => [...oldArray, defaultObj])
+  }
+
   return (
-      <div className="task-container">
-        <input type="checkbox" className="larger" onClick={onCheckboxClick}/>
-        <div className="task-text" onChange={onTextChanging}>{props.text}</div>
-        <StyledIcons className="bi bi-plus-lg" onClick={() => props.onPlusClick(!isClicked)}/>
-        <div className="border"></div>
-        <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
-      </div>
+      <>
+        <div className="task-container">
+          <input type="checkbox" className="larger" onClick={onCheckboxClick}/>
+          <div className="task-text" onChange={onTextChanging}>{props.text}</div>
+          <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>
+          <div className="border"></div>
+          <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
+        </div>
+        {subTasksArray.length > 0 ?
+            <div>{subTasksArray.map(el => (
+                <div className="task-container">
+                  <div className="task-text" onChange={onTextChanging}>{el.text}</div>
+                </div>
+            ))}
+            </div>
+            :
+            null
+        }
+      </>
   )
 }
