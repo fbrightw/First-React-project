@@ -36,11 +36,15 @@ export default function Task(props) {
           <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
         </div>
         {subTasksArray.length > 0 ?
-            <div>{subTasksArray.map(el => (
-                <div className="task-container">
+            <div className="subtask-container-list">
+              {subTasksArray.map(el => (
+                <div className="subtask-container">
+                  <input type="checkbox" onClick={onCheckboxClick}/>
                   <div className="task-text" onChange={onTextChanging}>{el.text}</div>
+                  <div className="border"></div>
+                  <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
                 </div>
-            ))}
+              ))}
             </div>
             :
             null

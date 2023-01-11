@@ -120,8 +120,7 @@ form > button {
     padding: 5px;
     margin: 10px;
     border-radius: 5px;
-    width: 40%;
-    height: 50%;
+    height: 50px;
     background: rgba(211, 211, 211, 0.29);
 }
 
@@ -151,7 +150,7 @@ form > button {
 
 .border {
     background: lightgrey;
-    height: 10vh;
+    height: 25px;
 }
 
 .task-container .close:hover {
@@ -162,6 +161,23 @@ form > button {
     display: flex;
     margin-left: 10px;
     flex: 1;
+}
+
+.subtask-container-list {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.subtask-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 90%;
+    height: 30%;
+    background: rgba(211, 211, 211, 0.29);
 }
 
 /*.close::before,*/
