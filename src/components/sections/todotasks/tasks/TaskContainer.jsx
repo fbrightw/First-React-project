@@ -1,11 +1,8 @@
 import React, {Component} from "react";
 import SubmitForm from "../../../../utils/SubmitForm";
-import TasksList from "./TasksList";
-// import PersonalCalendar from "../calendar/PersonalCalendar";
-import ModalPanel from "../../../../utils/ModalPanel";
 import Task from "./Task";
 
-export default class Todos extends Component {
+export default class TaskContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -46,12 +43,19 @@ export default class Todos extends Component {
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
                         Today's task:
                     </div>
-                    <TasksList
-                        tasks={this.state.tasks}
-                        number={this.state.number}
-                        removeTask={this.removeTask}
-                        onPlusClick={(value) => this.onPlusClick(value)}
-                    />
+                    {this.state.tasks.length > 0 ?
+                        <div className="task-container-list">
+                            {this.state.tasks.map(task =>
+                                <Task
+                                    task={task}
+                                    removeTask={this.removeTask}
+                                    onPlusClick={(value) => this.onPlusClick(value)}
+                                />
+                            )}
+                        </div>
+                        :
+                        null
+                    }
                 </div>
             </div>
         )

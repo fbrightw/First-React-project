@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Home from "./home/Home";
-import Todos from "./todotasks/tasks/Todos";
+import TaskContainer from "./todotasks/tasks/TaskContainer";
 import Table from "./table";
 
 export default class Sections extends Component {
@@ -9,7 +9,7 @@ export default class Sections extends Component {
             <div>
               <Home />
               <section>
-                <Todos />
+                <TaskContainer />
               </section>
               <section>
                 <Table />
