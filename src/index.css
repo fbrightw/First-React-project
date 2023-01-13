@@ -161,6 +161,11 @@ form > button {
     display: flex;
     margin-left: 10px;
     flex: 1;
+    border: solid 1px transparent;
+    border-bottom: gray;
+    background:rgba(211, 211, 211, 0);
+    -webkit-appearance: none;
+    outline: none !important;
 }
 
 .subtask-container-list {
