@@ -124,19 +124,33 @@ form > button {
     background: rgba(211, 211, 211, 0.29);
 }
 
-.task-container input.larger {
-    width: 20px;
-    height: 20px;
+/*.task-container input.larger {*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    margin: 5px;*/
+/*    -webkit-appearance: none;*/
+/*    border-radius: 2px;*/
+/*    background: white;*/
+/*    border: solid 1px transparent;*/
+/*    cursor: pointer;*/
+/*}*/
+
+input[type='checkbox']
+{
+    content:'';
+    display:block;
+    width:20px;
+    height:20px;
     margin: 5px;
-    -webkit-appearance: none;
+    background:none #ACACB8;
+    -webkit-border-radius: 3px;
     border-radius: 2px;
-    background: white;
-    border: solid 1px transparent;
-    cursor: pointer;
+    opacity:0.5;
 }
 
-.task-container input.larger:hover {
-    background: darkseagreen;
+.task-container input[type='checkbox']:checked
+{
+    position:relative;
 }
 
 .task-container .close {

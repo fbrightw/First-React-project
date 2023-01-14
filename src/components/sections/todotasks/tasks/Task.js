@@ -9,7 +9,8 @@ const defaultObj = {
 export default function Task(props) {
 
   const [subTasksArray, setSubTasksArray] = useState([]);
-  const [taskObj, setTaskObject] = useState(props.task)
+  const [taskObj, setTaskObject] = useState(props.task);
+  const [subTaskObj,setSubTaskObject] = useState()
 
   function removeTask(){
     props.removeTask(props.task.id);
@@ -26,6 +27,17 @@ export default function Task(props) {
     }))
   }
 
+  function onSubTaskTextChanging(e) {
+    // setSubTasksArray(prev => ({
+    //   ...prev,
+    //   text: e.target.value
+    // }))
+    setSubTaskObject(prev => ({
+      ...prev,
+      text: e.target.value
+    }))
+  }
+
   function onPlusClicked() {
     setSubTasksArray(oldArray => [...oldArray, defaultObj])
   }
@@ -33,7 +45,7 @@ export default function Task(props) {
   return (
       <>
         <div className="task-container">
-          <input type="checkbox" className="larger" onClick={onCheckboxClick}/>
+          <input type="checkbox" onClick={onCheckboxClick}/>
           <input type="text" className="task-text" value={taskObj.text} onChange={onTextChanging}/>
           <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>
           <div className="border"></div>
@@ -44,7 +56,7 @@ export default function Task(props) {
               {subTasksArray.map(el => (
                 <div className="subtask-container">
                   <input type="checkbox" onClick={onCheckboxClick}/>
-                  <div className="task-text" onChange={(value) => onTextChanging(value)}>{el.text}</div>
+                  <input type="text" className="task-text" value={el.text} onChange={onSubTaskTextChanging}/>
                   <div className="border"></div>
                   <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
                 </div>
