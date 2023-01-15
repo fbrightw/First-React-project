@@ -47,6 +47,7 @@ export default class TaskContainer extends Component {
                         <div className="task-container-list">
                             {this.state.tasks.map(task =>
                                 <Task
+                                    key={task.key}
                                     task={task}
                                     removeTask={this.removeTask}
                                     onPlusClick={(value) => this.onPlusClick(value)}
