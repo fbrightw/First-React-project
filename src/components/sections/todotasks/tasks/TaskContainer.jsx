@@ -8,19 +8,11 @@ export default class TaskContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tasks: [],
-            isPlusClicked: false
+            tasks: []
         }
 
         this.addTask = this.addTask.bind(this);
         this.removeTask = this.removeTask.bind(this);
-        this.onPlusClick = this.onPlusClick.bind(this);
-    }
-
-    onPlusClick(value) {
-        this.setState({
-            isPlusCLicked: value
-        })
     }
 
     addTask(task) {
@@ -51,7 +43,6 @@ export default class TaskContainer extends Component {
                                     key={task.key}
                                     task={task}
                                     removeTask={this.removeTask}
-                                    onPlusClick={(value) => this.onPlusClick(value)}
                                 />
                             )}
                         </div>

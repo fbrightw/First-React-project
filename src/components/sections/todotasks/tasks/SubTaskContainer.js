@@ -3,17 +3,13 @@ import SubTask from "./SubTask";
 
 function SubTaskContainer(props) {
 
-  function removeSubTask() {
-
-  }
-
   return (
       <div className="subtask-container-list">
         {props.subTasksArray.map(el =>
             <SubTask
                 task={el}
-                key={el.key}
-                removeSubTask={removeSubTask}
+                key={el.id}
+                removeSubTask={(id) => props.removeSubTask(id)}
             />
         )}
       </div>

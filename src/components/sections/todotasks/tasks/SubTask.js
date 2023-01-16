@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import StyledIcons from "../../../../utils/StyledIcons";
-import {defaultObj} from "./Task";
 
 function SubTask(props) {
 
@@ -24,7 +23,7 @@ function SubTask(props) {
         <input type="checkbox" onClick={onCheckboxClick}/>
         <input type="text" className="task-text" onChange={onSubTaskTextChanging}/>
         <div className="border"></div>
-        <StyledIcons className="bi bi-x-lg" onClick={(id) => props.removeSubTask(id)}/>
+        <StyledIcons className="bi bi-x-lg" onClick={() => props.removeSubTask(props.task.id)}/>
       </div>
   );
 }
