@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useId, useState} from 'react';
 import StyledIcons from "../../../../utils/StyledIcons";
 import SubTaskContainer from "./SubTaskContainer";
+import renderIf from "../../../../utils/common/renderIf";
 
 export const defaultObj = {
   id: 'id' + (new Date()).getTime(),
@@ -12,12 +13,13 @@ export default function Task(props) {
   const [subTasksArray, setSubTasksArray] = useState([]);
   const [isChecked, onIsChecked] = useState(false);
   const [taskObj, setTaskObject] = useState(props.task);
+  const [subtaskId, setSubtaskId] = useState(0);
 
   function removeTask(){
     props.removeTask(props.task.id);
   }
 
-  function onCheckboxClick(e) {
+  function onCheckboxClick() {
       onIsChecked(!isChecked);
   }
 
@@ -29,7 +31,8 @@ export default function Task(props) {
   }
 
   function onPlusClicked() {
-    setSubTasksArray(oldArray => [...oldArray, defaultObj])
+    setSubtaskId(prev => prev++);
+    setSubTasksArray(oldArray => [...oldArray, {id: subtaskId, text: ""}]);
   }
 
   function setClassName() {
@@ -45,15 +48,15 @@ export default function Task(props) {
           <div className="border"></div>
           <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
         </div>
-        {/*make connect btw task and array of subtasks*/}
-        {subTasksArray.length > 0 ?
+        {renderIf(subTasksArray.length > 0,
             <SubTaskContainer
-                subTasksArray={subTasksArray} //no need if connection is set
+                subTasksArray={subTasksArray}
                 taskId={props.task.id}
+                removeSubTask={(id) => {
+                  setSubTasksArray(subTasksArray.splice(subTasksArray.findIndex((obj) => obj.id === id), 1))
+                }}
             />
-            :
-            null
-        }
+        )}
       </>
   )
 }
