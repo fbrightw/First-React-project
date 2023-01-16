@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal} from "react-bootstrap";
-import Task from "../components/sections/todotasks/tasks/Task";
+import Task from "../../components/sections/todotasks/tasks/Task";
 
 function ModalPanel(props) {
 

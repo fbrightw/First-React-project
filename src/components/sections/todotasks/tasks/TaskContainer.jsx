@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import SubmitForm from "../../../../utils/SubmitForm";
+import SubmitForm from "../../../../utils/forms/SubmitForm";
 import Task from "./Task";
+import renderIf from "../../../../utils/common/renderIf";
 
 export default class TaskContainer extends Component {
 
@@ -43,7 +44,7 @@ export default class TaskContainer extends Component {
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
                         Today's task:
                     </div>
-                    {this.state.tasks.length > 0 ?
+                    {renderIf(this.state.tasks.length > 0,
                         <div className="task-container-list">
                             {this.state.tasks.map(task =>
                                 <Task
@@ -54,9 +55,7 @@ export default class TaskContainer extends Component {
                                 />
                             )}
                         </div>
-                        :
-                        null
-                    }
+                    )}
                 </div>
             </div>
         )
