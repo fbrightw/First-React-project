@@ -21,9 +21,9 @@ function SubTask(props) {
   return (
       <div className="subtask-container">
         <input type="checkbox" onClick={onCheckboxClick}/>
-        <input type="text" className="task-text" onChange={onSubTaskTextChanging}/>
+        <input type="text" className="task-text" value={subtaskObj.text} onChange={onSubTaskTextChanging}/>
         <div className="border"></div>
-        <StyledIcons className="bi bi-x-lg" onClick={() => props.removeSubTask(props.task.id)}/>
+        <StyledIcons className="bi bi-x-lg" onClick={() => props.removeSubtask(props.task.id)}/>
       </div>
   );
 }

@@ -16,8 +16,7 @@ class SubmitForm extends React.Component{
             let newTask = {
                 text: this._inputElement.value,
                 id: this.state.tasksCount,
-                key: Date.now(),
-                subTasks: []
+                key: Date.now()
             };
 
             this.props.addTask(newTask);

@@ -1,7 +1,7 @@
-import React, {useId, useState} from 'react';
+import React, {useEffect, useId, useState} from 'react';
 import StyledIcons from "../../../../utils/StyledIcons";
-import SubTaskContainer from "./SubTaskContainer";
 import renderIf from "../../../../utils/common/renderIf";
+import SubTask from "./SubTask";
 
 export const defaultObj = {
   id: 'id' + (new Date()).getTime(),
@@ -30,8 +30,16 @@ export default function Task(props) {
     }))
   }
 
+  function removeSubtask(id) {
+    const subtasks = subTasksArray.filter(element => (element.id !== id));
+    setSubTasksArray(subtasks);
+  }
+
+  useEffect(() => {
+    setSubtaskId(subtaskId + 1)
+  }, [subTasksArray])
+
   function onPlusClicked() {
-    setSubtaskId(prev => prev++);
     setSubTasksArray(oldArray => [...oldArray, {id: subtaskId, text: ""}]);
   }
 
@@ -49,13 +57,15 @@ export default function Task(props) {
           <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
         </div>
         {renderIf(subTasksArray.length > 0,
-            <SubTaskContainer
-                subTasksArray={subTasksArray}
-                taskId={props.task.id}
-                removeSubTask={(id) => {
-                  setSubTasksArray(subTasksArray.splice(subTasksArray.findIndex((obj) => obj.id === id), 1))
-                }}
-            />
+            <div className="subtask-container-list">
+              {subTasksArray.map(el =>
+                  <SubTask
+                      task={el}
+                      key={el.id}
+                      removeSubtask={(id) => removeSubtask(id)}
+                  />
+              )}
+            </div>
         )}
       </>
   )
