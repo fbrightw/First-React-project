@@ -47,10 +47,16 @@ export default function Task(props) {
     return (isChecked ? "task-container-green" : "task-container")
   }
 
+  function onCaretClick() {
+
+  }
+
   return (
       <>
         <div className={setClassName()}>
           <input type="checkbox" onClick={onCheckboxClick}/>
+          <StyledIcons className="bi bi-caret-down" onChange={onCaretClick}/>
+          <div className="border"></div>
           <input type="text" className="task-text" value={taskObj.text} onChange={onTextChanging}/>
           <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>
           <div className="border"></div>
