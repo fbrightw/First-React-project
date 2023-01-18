@@ -14,6 +14,7 @@ export default function Task(props) {
   const [isChecked, onIsChecked] = useState(false);
   const [taskObj, setTaskObject] = useState(props.task);
   const [subtaskId, setSubtaskId] = useState(0);
+  const [isCaretClicked, onIsCaretClicked] = useState(true);
 
   function removeTask(){
     props.removeTask(props.task.id);
@@ -48,21 +49,21 @@ export default function Task(props) {
   }
 
   function onCaretClick() {
-
+    onIsCaretClicked(!isCaretClicked)
   }
 
   return (
       <>
         <div className={setClassName()}>
           <input type="checkbox" onClick={onCheckboxClick}/>
-          <StyledIcons className="bi bi-caret-down" onChange={onCaretClick}/>
+          <StyledIcons className="bi bi-caret-down" onClick={onCaretClick}/>
           <div className="border"></div>
           <input type="text" className="task-text" value={taskObj.text} onChange={onTextChanging}/>
           <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>
           <div className="border"></div>
           <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
         </div>
-        {renderIf(subTasksArray.length > 0,
+        {renderIf(subTasksArray.length > 0 && isCaretClicked,
             <div className="subtask-container-list">
               {subTasksArray.map(el =>
                   <SubTask
