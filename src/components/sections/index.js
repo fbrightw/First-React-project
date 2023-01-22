@@ -8,12 +8,12 @@ export default class Sections extends Component {
         return (
             <div>
               <Home />
-              <section>
+              {/*<section>*/}
                 <TaskContainer />
-              </section>
-              <section>
+              {/*</section>*/}
+              {/*<section>*/}
                 <Table />
-              </section>
+              {/*</section>*/}
             </div>
         );
     }
