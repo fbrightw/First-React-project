@@ -31,6 +31,10 @@ export default function Task(props) {
     }))
   }
 
+  useEffect(() => {
+    props.task.subTasks.push(subTasksArray)
+  }, [subTasksArray])
+
   function removeSubtask(id) {
     const subtasks = subTasksArray.filter(element => (element.id !== id));
     setSubTasksArray(subtasks);
@@ -65,7 +69,7 @@ export default function Task(props) {
         </div>
         {renderIf(subTasksArray.length > 0 && isCaretClicked,
             <div className="subtask-container-list">
-              {subTasksArray.map(el =>
+              {props.task.subTasks.map(el =>
                   <SubTask
                       task={el}
                       key={el.id}
