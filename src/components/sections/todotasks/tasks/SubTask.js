@@ -11,7 +11,6 @@ function SubTask(props) {
   }
 
   function onSubTaskTextChanging(e) {
-    // subTasksArray.find()
     setSubtaskObj(prev => ({
       ...prev,
       text: e.target.value
@@ -19,7 +18,7 @@ function SubTask(props) {
   }
 
   return (
-      <div className="subtask-container">
+      <div className="subtask-container" ref={subtaskObj.nodeRef}>
         <input type="checkbox" onClick={onCheckboxClick}/>
         <input type="text" className="task-text" value={subtaskObj.text} onChange={onSubTaskTextChanging}/>
         <div className="border"></div>

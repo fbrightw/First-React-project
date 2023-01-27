@@ -1,7 +1,8 @@
-import React, {useEffect, useId, useState} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import StyledIcons from "../../../../utils/StyledIcons";
 import renderIf from "../../../../utils/common/renderIf";
 import SubTask from "./SubTask";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 export const defaultObj = {
   id: 'id' + (new Date()).getTime(),
@@ -45,7 +46,11 @@ export default function Task(props) {
   }, [subTasksArray])
 
   function onPlusClicked() {
-    setSubTasksArray(oldArray => [...oldArray, {id: subtaskId, text: ""}]);
+    setSubTasksArray(oldArray => [...oldArray, {
+        id: subtaskId,
+        text: "",
+        nodeRef: createRef(null)
+    }]);
   }
 
   function setClassName() {
@@ -55,6 +60,8 @@ export default function Task(props) {
   function onCaretClick() {
     onIsCaretClicked(!isCaretClicked)
   }
+
+  console.log("y", subTasksArray)
 
   return (
       <>
@@ -68,15 +75,17 @@ export default function Task(props) {
           <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
         </div>
         {renderIf(subTasksArray.length > 0 && isCaretClicked,
-            <div className="subtask-container-list">
-              {props.task.subTasks.map(el =>
-                  <SubTask
-                      task={el}
-                      key={el.id}
-                      removeSubtask={(id) => removeSubtask(id)}
-                  />
-              )}
-            </div>
+              <TransitionGroup component="ul" className="subtask-container-list">
+                {props.task.subTasks.map(el =>
+                    <CSSTransition key={el.id} nodeRef={el.nodeRef} timeout={500} classNames="item">
+                      <SubTask
+                          task={el}
+                          key={el.id}
+                          removeSubtask={(id) => removeSubtask(id)}
+                      />
+                    </CSSTransition>
+                )}
+              </TransitionGroup>
         )}
       </>
   )

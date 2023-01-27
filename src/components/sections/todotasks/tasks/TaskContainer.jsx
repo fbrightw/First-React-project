@@ -40,7 +40,7 @@ export default class TaskContainer extends Component {
                     {renderIf(this.state.tasks.length > 0,
                         <TransitionGroup component="ul" className="task-container-list">
                             {this.state.tasks.map(task =>
-                                <CSSTransition key={task.id} nodeRef={task.nodeRef} timeout={500}  classNames="item">
+                                <CSSTransition key={task.id} nodeRef={task.nodeRef} timeout={500} classNames="item">
                                     <Task
                                         key={task.key}
                                         task={task}
