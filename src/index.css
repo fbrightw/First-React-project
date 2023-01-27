@@ -197,21 +197,18 @@ input[type='checkbox']
     background: rgba(211, 211, 211, 0.29);
 }
 
-/*.icons::before,*/
-/*.icons::after {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    top: 10px;*/
-/*    display: block;*/
-/*    width: 24px;*/
-/*    height: 3px;*/
-/*    background: #000;*/
-/*}*/
+.item-enter {
+    opacity: 0;
+}
+.item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
 
-/*.icons::before {*/
-/*    transform: rotate(45deg);*/
-/*}*/
-
-/*.icons::after {*/
-/*    transform: rotate(-45deg);*/
-/*}*/
+.item-exit {
+    opacity: 1;
+}
+.item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}

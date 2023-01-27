@@ -32,7 +32,7 @@ export default function Task(props) {
   }
 
   useEffect(() => {
-    props.task.subTasks.push(subTasksArray)
+    props.task.subTasks = subTasksArray;
   }, [subTasksArray])
 
   function removeSubtask(id) {
@@ -58,7 +58,7 @@ export default function Task(props) {
 
   return (
       <>
-        <div className={setClassName()}>
+        <div className={setClassName()} ref={props.nodeRef}>
           <input type="checkbox" onClick={onCheckboxClick}/>
           <StyledIcons className="bi bi-caret-down" onClick={onCaretClick}/>
           <div className="border"></div>

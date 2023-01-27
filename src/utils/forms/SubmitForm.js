@@ -17,6 +17,7 @@ class SubmitForm extends React.Component{
                 text: this._inputElement.value,
                 id: this.state.tasksCount,
                 key: Date.now(),
+                nodeRef: React.createRef(null),
                 subTasks: []
             };
 

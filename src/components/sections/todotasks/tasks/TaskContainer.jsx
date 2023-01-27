@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useRef} from "react";
 import SubmitForm from "../../../../utils/forms/SubmitForm";
 import Task from "./Task";
 import renderIf from "../../../../utils/common/renderIf";
@@ -14,7 +14,6 @@ export default class TaskContainer extends Component {
 
         this.addTask = this.addTask.bind(this);
         this.removeTask = this.removeTask.bind(this);
-        this.nodeRef = React.createRef();
     }
 
     addTask(task) {
@@ -38,21 +37,20 @@ export default class TaskContainer extends Component {
                     <div className="font-sans my-10 text-2xl font-light tracking-wide">
                         Today's task:
                     </div>
-                    <TransitionGroup component="ul" className="my-appear">
-                        {renderIf(this.state.tasks.length > 0,
-                                // <div>
-                                    this.state.tasks.map(task =>
-                                        <CSSTransition key={task.id} timeout={500} nodeRef={this.nodeRef}>
-                                            <Task
-                                                key={task.key}
-                                                task={task}
-                                                removeTask={this.removeTask}
-                                            />
-                                        </CSSTransition>
-                                    )
-                                // </div>
-                        )}
-                    </TransitionGroup>
+                    {renderIf(this.state.tasks.length > 0,
+                        <TransitionGroup component="ul" className="task-container-list">
+                            {this.state.tasks.map(task =>
+                                <CSSTransition key={task.id} nodeRef={task.nodeRef} timeout={500}  classNames="item">
+                                    <Task
+                                        key={task.key}
+                                        task={task}
+                                        removeTask={this.removeTask}
+                                        nodeRef={task.nodeRef}
+                                    />
+                                </CSSTransition>
+                            )}
+                        </TransitionGroup>
+                    )}
                 </div>
             </div>
         )
