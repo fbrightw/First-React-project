@@ -49,7 +49,8 @@ export default class TaskContainer extends Component {
                                     />
                                 </CSSTransition>
                             )}
-                        </TransitionGroup>
+                        </TransitionGroup>,
+                        <div>no tasks</div>
                     )}
                 </div>
             </div>

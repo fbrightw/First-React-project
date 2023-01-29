@@ -61,8 +61,6 @@ export default function Task(props) {
     onIsCaretClicked(!isCaretClicked)
   }
 
-  console.log("y", subTasksArray)
-
   return (
       <>
         <div className={setClassName()} ref={props.nodeRef}>
