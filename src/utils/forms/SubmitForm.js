@@ -4,9 +4,9 @@ class SubmitForm extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            tasksCount: 0
-        };
+        // this.state = {
+        //     tasksCount: 0
+        // };
 
         this.addTask = this.addTask.bind(this);
     }
@@ -15,15 +15,15 @@ class SubmitForm extends React.Component{
         if (this._inputElement.value !== "") {
             let newTask = {
                 text: this._inputElement.value,
-                id: this.state.tasksCount,
-                key: Date.now(),
+                // id: this.state.tasksCount,
+                id: Date.now(),
                 nodeRef: React.createRef(null),
                 subTasks: []
             };
 
             this.props.addTask(newTask);
 
-            this.state.tasksCount++;
+            // this.state.tasksCount++;
             this._inputElement.value = "";
         }
 
@@ -32,11 +32,12 @@ class SubmitForm extends React.Component{
 
     render(){
         return (
-            <form onSubmit={this.addTask}>
+            <form>
                 <input
                     ref={(a) => this._inputElement = a}
                     placeholder='Add new task'
                 />
+                <button onClick={this.addTask}>Add</button>
             </form>
         );
     }

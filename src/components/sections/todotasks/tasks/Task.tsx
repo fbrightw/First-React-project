@@ -1,23 +1,40 @@
-import React, {createRef, useEffect, useState} from 'react';
+import React, {createRef, FC, RefObject, useEffect, useState} from 'react';
 import StyledIcons from "../../../../utils/StyledIcons";
 import renderIf from "../../../../utils/common/renderIf";
 import SubTask from "./SubTask";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
-export const defaultObj = {
-  id: 'id' + (new Date()).getTime(),
-  text: null
+interface ITask {
+    id: number,
+    text: string,
+    subTasks: ISubTasks[],
+    nodeRef?: RefObject<HTMLInputElement>,
 }
 
-export default function Task(props) {
+interface TaskProps {
+    task: ITask,
+    removeTask: (id: number) => void
+}
 
-  const [subTasksArray, setSubTasksArray] = useState([]);
+export const defaultObj = {
+  id: 'id' + (new Date()).getTime(),
+  text: ''
+}
+
+interface ISubTasks {
+    id: string,
+    text: string,
+    nodeRef?: RefObject<HTMLInputElement>
+}
+
+const Task: FC<TaskProps> = (props: TaskProps) => {
+
+  const [subTasksArray, setSubTasksArray] = useState<ISubTasks[]>([]);
   const [isChecked, onIsChecked] = useState(false);
-  const [taskObj, setTaskObject] = useState(props.task);
-  const [subtaskId, setSubtaskId] = useState(0);
+  const [taskObj, setTaskObject] = useState<ITask>(props.task);
   const [isCaretClicked, onIsCaretClicked] = useState(true);
 
-  function removeTask(){
+  function removeTaskById(){
     props.removeTask(props.task.id);
   }
 
@@ -41,16 +58,15 @@ export default function Task(props) {
     setSubTasksArray(subtasks);
   }
 
-  useEffect(() => {
-    setSubtaskId(subtaskId + 1)
-  }, [subTasksArray])
-
   function onPlusClicked() {
-    setSubTasksArray(oldArray => [...oldArray, {
-        id: subtaskId,
-        text: "",
-        nodeRef: createRef(null)
-    }]);
+      let newObj = {
+          id: 'id'+ new Date(),
+          text: "",
+          nodeRef: createRef(null)
+      }
+    // @ts-ignore
+      setSubTasksArray( [...subTasksArray, newObj]);
+      // props.addSubTasks(subTasksArray)
   }
 
   function setClassName() {
@@ -63,14 +79,14 @@ export default function Task(props) {
 
   return (
       <>
-        <div className={setClassName()} ref={props.nodeRef}>
+        <div className={setClassName()} ref={props.task.nodeRef}>
           <input type="checkbox" onClick={onCheckboxClick}/>
           <StyledIcons className="bi bi-caret-down" onClick={onCaretClick}/>
           <div className="border"></div>
           <input type="text" className="task-text" value={taskObj.text} onChange={onTextChanging}/>
           <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>
           <div className="border"></div>
-          <StyledIcons className="bi bi-x-lg" onClick={removeTask}/>
+          <StyledIcons className="bi bi-x-lg" onClick={removeTaskById}/>
         </div>
         {renderIf(subTasksArray.length > 0 && isCaretClicked,
               <TransitionGroup component="ul" className="subtask-container-list">
@@ -88,3 +104,5 @@ export default function Task(props) {
       </>
   )
 }
+
+export default Task;

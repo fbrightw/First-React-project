@@ -37,7 +37,7 @@ module.exports = smp.wrap({
     },
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
 
     optimization: {
@@ -75,7 +75,7 @@ module.exports = smp.wrap({
     module: {
         rules: [
             {
-                test: /\.(js)x?$/,
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -83,6 +83,7 @@ module.exports = smp.wrap({
                         presets: [
                             "@babel/preset-env",
                             ['@babel/preset-react', {runtime: 'automatic'}],
+                            "@babel/preset-typescript"
                         ],
                         cacheDirectory: true
                     },

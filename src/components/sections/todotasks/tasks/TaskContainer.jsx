@@ -1,4 +1,4 @@
-import React, {Component, useRef} from "react";
+import React, {Component} from "react";
 import SubmitForm from "../../../../utils/forms/SubmitForm";
 import Task from "./Task";
 import renderIf from "../../../../utils/common/renderIf";
@@ -29,6 +29,10 @@ export default class TaskContainer extends Component {
         this.setState({tasks: tasks});
     }
 
+    // addSubTasks() {
+    //
+    // }
+
     render() {
         return (
             <div id="todo">
@@ -42,10 +46,8 @@ export default class TaskContainer extends Component {
                             {this.state.tasks.map(task =>
                                 <CSSTransition key={task.id} nodeRef={task.nodeRef} timeout={500} classNames="item">
                                     <Task
-                                        key={task.key}
-                                        task={task}
                                         removeTask={this.removeTask}
-                                        nodeRef={task.nodeRef}
+                                        task={task}
                                     />
                                 </CSSTransition>
                             )}
