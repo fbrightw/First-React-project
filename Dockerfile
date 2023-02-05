@@ -2,16 +2,16 @@ FROM node
 
 WORKDIR /app
 
+ENV PATH /app/node_modules/.bin:$PATH
+
 COPY . .
 
 RUN npm install
 
-RUN npm run build
+COPY . ./
 
-COPY . .
-
-ENV PORT 4200
+ENV PORT 8081
 
 EXPOSE $PORT
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
