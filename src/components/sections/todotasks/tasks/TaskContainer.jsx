@@ -1,61 +1,51 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import SubmitForm from "../../../../utils/forms/SubmitForm";
 import Task from "./Task";
 import renderIf from "../../../../utils/common/renderIf";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
-export default class TaskContainer extends Component {
+export function TaskContainer() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            tasks: []
-        }
+    const [tasks, setTasks] = useState([]);
 
-        this.addTask = this.addTask.bind(this);
-        this.removeTask = this.removeTask.bind(this);
+    function addTask(task) {
+        setTasks(prevState => [
+            ...prevState,
+            task
+        ])
     }
 
-    addTask(task) {
-        this.setState((prevState) => {
-            return {
-                tasks: prevState.tasks.concat(task),
-            };
-        });
+    function removeTask(id) {
+        const tasksArr = tasks.filter(element => (element.id !== id));
+        setTasks(tasksArr)
     }
 
-    removeTask(id) {
-        const tasks = this.state.tasks.filter(element => (element.id !== id));
-        this.setState({tasks: tasks});
+    function onTaskObjChange(obj) {
+
     }
 
-    // addSubTasks() {
-    //
-    // }
-
-    render() {
-        return (
-            <div id="todo">
-                <div className="tasks">
-                    <SubmitForm addTask={this.addTask}/>
-                    <div className="font-sans my-10 text-2xl font-light tracking-wide">
-                        Today's task:
-                    </div>
-                    {renderIf(this.state.tasks.length > 0,
-                        <TransitionGroup component="ul" className="task-container-list">
-                            {this.state.tasks.map(task =>
-                                <CSSTransition key={task.id} nodeRef={task.nodeRef} timeout={500} classNames="item">
-                                    <Task
-                                        removeTask={this.removeTask}
-                                        task={task}
-                                    />
-                                </CSSTransition>
-                            )}
-                        </TransitionGroup>,
-                        <div>no tasks</div>
-                    )}
+    return (
+        <div id="todo">
+            <div className="tasks">
+                <SubmitForm addTask={addTask}/>
+                <div className="font-sans my-10 text-2xl font-light tracking-wide">
+                    Today's task:
                 </div>
+                {renderIf(tasks.length > 0,
+                    <TransitionGroup component="ul" className="task-container-list">
+                        {tasks.map(task =>
+                            <CSSTransition key={task.id} nodeRef={task.nodeRef} timeout={500} classNames="item">
+                                <Task
+                                    removeTask={removeTask}
+                                    task={task}
+                                    onTaskObjChange={onTaskObjChange}
+                                />
+                            </CSSTransition>
+                        )}
+                    </TransitionGroup>,
+                    <div>no tasks</div>
+                )}
             </div>
-        )
-    }
+        </div>
+    )
 }

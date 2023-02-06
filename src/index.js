@@ -6,7 +6,7 @@ import './index.css'
 import './styles.css'
 import App from './App.jsx';
 import Login from "./components/sections/login/Login";
-import TaskContainer from "./components/sections/todotasks/tasks/TaskContainer";
+import {TaskContainer} from "./components/sections/todotasks/tasks/TaskContainer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

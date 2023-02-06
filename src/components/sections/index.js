@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Home from "./home/Home";
-import TaskContainer from "./todotasks/tasks/TaskContainer";
+import {TaskContainer} from "./todotasks/tasks/TaskContainer";
 // import Table from "./table";
 // import LanguageTrainer from "./trainer";
 

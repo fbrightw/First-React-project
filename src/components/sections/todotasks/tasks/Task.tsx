@@ -14,6 +14,7 @@ interface ITask {
 interface TaskProps {
     task: ITask,
     removeTask: (id: number) => void
+    onTaskObjChange: (obj: ITask) => void
 }
 
 export const defaultObj = {
@@ -31,7 +32,7 @@ const Task: FC<TaskProps> = (props: TaskProps) => {
 
   const [subTasksArray, setSubTasksArray] = useState<ISubTasks[]>([]);
   const [isChecked, onIsChecked] = useState(false);
-  const [taskObj, setTaskObject] = useState<ITask>(props.task);
+  const [taskObject, setTaskObject] = useState<ITask>(props.task);
   const [isCaretClicked, onIsCaretClicked] = useState(true);
 
   function removeTaskById(){
@@ -50,7 +51,11 @@ const Task: FC<TaskProps> = (props: TaskProps) => {
   }
 
   useEffect(() => {
-    props.task.subTasks = subTasksArray;
+      setTaskObject({
+          ...taskObject,
+          subTasks: subTasksArray
+      })
+    props.onTaskObjChange(taskObject)
   }, [subTasksArray])
 
   function removeSubtask(id) {
@@ -66,7 +71,6 @@ const Task: FC<TaskProps> = (props: TaskProps) => {
       }
     // @ts-ignore
       setSubTasksArray( [...subTasksArray, newObj]);
-      // props.addSubTasks(subTasksArray)
   }
 
   function setClassName() {
@@ -83,14 +87,14 @@ const Task: FC<TaskProps> = (props: TaskProps) => {
           <input type="checkbox" onClick={onCheckboxClick}/>
           <StyledIcons className="bi bi-caret-down" onClick={onCaretClick}/>
           <div className="border"></div>
-          <input type="text" className="task-text" value={taskObj.text} onChange={onTextChanging}/>
+          <input type="text" className="task-text" value={taskObject.text} onChange={onTextChanging}/>
           <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>
           <div className="border"></div>
           <StyledIcons className="bi bi-x-lg" onClick={removeTaskById}/>
         </div>
         {renderIf(subTasksArray.length > 0 && isCaretClicked,
               <TransitionGroup component="ul" className="subtask-container-list">
-                {props.task.subTasks.map(el =>
+                {taskObject.subTasks.map(el =>
                     <CSSTransition key={el.id} nodeRef={el.nodeRef} timeout={500} classNames="item">
                       <SubTask
                           task={el}
