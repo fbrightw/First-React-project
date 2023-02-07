@@ -3,6 +3,7 @@ import StyledIcons from "../../../../utils/StyledIcons";
 import renderIf from "../../../../utils/common/renderIf";
 import SubTask from "./SubTask";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
+import '../../../../index.css'
 
 interface ITask {
     id: number,
@@ -78,14 +79,23 @@ const Task: FC<TaskProps> = (props: TaskProps) => {
   }
 
   function onCaretClick() {
-    onIsCaretClicked(!isCaretClicked)
+    onIsCaretClicked(!isCaretClicked);
+    const div = document.getElementById("caret")
+      console.log("dfg", document, div)
+      // @ts-ignore
+      if(div.className == "bi bi-caret-down") {
+          div.className = "bi bi-caret-up";
+      }
+      else {
+          div.className = 'bi bi-caret-down'
+          }
   }
 
   return (
       <>
         <div className={setClassName()} ref={props.task.nodeRef}>
           <input type="checkbox" onClick={onCheckboxClick}/>
-          <StyledIcons className="bi bi-caret-down" onClick={onCaretClick}/>
+          <StyledIcons className="bi bi-caret-down" id="caret" onClick={onCaretClick}/>
           <div className="border"></div>
           <input type="text" className="task-text" value={taskObject.text} onChange={onTextChanging}/>
           <StyledIcons className="bi bi-plus-lg" onClick={onPlusClicked}/>

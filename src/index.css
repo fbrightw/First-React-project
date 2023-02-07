@@ -130,7 +130,7 @@ form > button {
     margin: 10px;
     border-radius: 5px;
     height: 50px;
-    background: lightgreen;
+    background: rgba(94, 204, 94, 0.28);
 }
 
 input[type='checkbox']
@@ -211,4 +211,15 @@ input[type='checkbox']
 .item-exit-active {
     opacity: 0;
     transition: opacity 500ms ease-in;
+}
+
+
+.bi-caret-down {
+    transform: rotate(0deg);
+    transition: transform 0.5s linear;
+}
+
+.bi-caret-up {
+    transform: rotate(90deg);
+    transition: transform 0.5s linear;
 }
