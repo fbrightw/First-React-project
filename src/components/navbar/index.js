@@ -18,19 +18,19 @@ export default class NavBar extends  Component {
     render() {
         return (
             <Menu>
-                <a id="home" className="menu-item" href="/#/home">
+                <a id="home" className="menu-item" href="/">
                     <i className="bi bi-house"></i>
                 </a>
                 <a id="login" href="/login">
                     <i className="bi bi-person"></i>
                 </a>
-                <a id="todo" className="menu-item" href="/#/todo">
+                <a id="todo" className="menu-item" href="/tasks">
                     <i className="bi bi-list-task"></i>
                 </a>
-                <a id="table" className="menu-item"  href="/#/table">
+                <a id="table" className="menu-item"  href="/table">
                     <i className="bi bi-table"></i>
                 </a>
-                <a id="calendar" className="menu-item"  href="/#/calendar">
+                <a id="calendar" className="menu-item"  href="/calendar">
                     <i className="bi bi-calendar"></i>
                 </a>
             </Menu>

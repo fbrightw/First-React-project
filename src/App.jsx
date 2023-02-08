@@ -1,13 +1,13 @@
 import React from 'react';
-import Sections from "./components/sections";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/navbar";
+import {AppRouter} from "./components/router/AppRouter";
 
 function App() {
     return (
         <div>
-            <NavBar/>
-            <Sections/>
+            <NavBar />
+            <AppRouter />
         </div>
     );
 }
