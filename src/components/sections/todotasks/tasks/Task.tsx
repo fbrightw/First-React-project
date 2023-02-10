@@ -1,5 +1,5 @@
 import React, {createRef, FC, RefObject, useEffect, useState} from 'react';
-import StyledIcons from "../../../../utils/StyledIcons";
+import StyledIcons from "../../../../utils/forms/StyledIcons";
 import renderIf from "../../../../utils/common/renderIf";
 import SubTask from "./SubTask";
 import {CSSTransition, TransitionGroup} from "react-transition-group";

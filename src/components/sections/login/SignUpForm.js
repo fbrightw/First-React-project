@@ -7,6 +7,11 @@ function SignUpForm(props) {
     props.changeMode();
   }
 
+  function onSubmit( ){
+    console.log("dfgh")
+  }
+
+
   return (
       <form className='Auth-form'>
         <div>
@@ -33,7 +38,7 @@ function SignUpForm(props) {
               placeholder="Password"
           />
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" onChange={onSubmit}>
               Submit
             </button>
           </div>

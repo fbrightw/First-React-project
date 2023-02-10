@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import StyledIcons from "../../../../utils/StyledIcons";
+import StyledIcons from "../../../../utils/forms/StyledIcons";
 
 function SubTask(props) {
 

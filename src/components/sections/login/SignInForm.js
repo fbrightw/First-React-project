@@ -1,14 +1,18 @@
 import React from 'react';
 import Field from "./Field";
+import {AuthActionCreators} from "../../../store/reducers/auth/action-creators";
+import {useDispatch} from "react-redux";
 
 function SignInForm(props) {
+
+  const dispatch = useDispatch();
 
   function changeAuthMode() {
     props.changeMode();
   }
 
   function onSubmit() {
-
+    dispatch(AuthActionCreators.login('', ''))
   }
 
   return (
