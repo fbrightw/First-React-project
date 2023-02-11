@@ -24,8 +24,18 @@ export const AuthActionCreators =  {
     login: (email: string, password: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(AuthActionCreators.setIsLoading(true));
-            const mockUsers = await axios.get('./users.json')
-            console.log("axios", mockUsers)
+            const response = await axios.get<IUser[]>('./users.json')
+            const mockUser = response.data.find(user => user.email === email && user.password === password);
+            if (mockUser) {
+                localStorage.setItem('auth', 'true');
+                localStorage.setItem('email', mockUser.email);
+                dispatch(AuthActionCreators.setIsAuth(true))
+                dispatch(AuthActionCreators.setUser(mockUser))
+            }
+            else {
+                dispatch(AuthActionCreators.setError("Неправильный логин или пароль"))
+            }
+            AuthActionCreators.setIsLoading(false);
         }
         catch (e) {
             dispatch(AuthActionCreators.setError("There is some error on server when login"))

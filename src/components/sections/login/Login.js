@@ -44,7 +44,9 @@ export default function Login() {
       <div className="Auth-form-container">
         <ParticlesBackground/>
         {isSignInMode ?
-            <SignInForm changeMode={changeMode}/> : <SignUpForm changeMode={changeMode}/>}
+            <SignInForm changeMode={changeMode}/>
+            :
+            <SignUpForm changeMode={changeMode}/>}
       </div>
   )
 };
